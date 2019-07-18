@@ -6,15 +6,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-  @Output() componentSelected = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onSelectedComponent(component: string) {
-    this.componentSelected.emit(component);
   }
 
 }

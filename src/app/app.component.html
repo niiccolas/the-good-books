@@ -1,12 +1,5 @@
-<app-header (componentSelected)="onNavigate($event)"></app-header>
-
-<div>
-  <app-search *ngIf="loadedComponent === 'search'"></app-search>
-  <app-books *ngIf="loadedComponent === 'books'"></app-books>
-  <app-details *ngIf="loadedComponent === 'details'"></app-details>
-  <app-cart *ngIf="loadedComponent === 'cart'"></app-cart>
-</div>
-
-<app-footer></app-footer>
+<app-header></app-header>
 
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>
