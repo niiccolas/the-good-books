@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GbooksApiService } from './services/gbooks-api.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,6 @@ export class AppComponent {
   onNavigate(component: string) {
     this.loadedComponent = component;
   }
+
+  constructor(private gbooksApiService: GbooksApiService) { }
 }

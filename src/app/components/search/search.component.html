@@ -1,1 +1,17 @@
 <p>search works!</p>
+
+<div *ngIf="gbooksApiService.books; then gbooks else loading"></div>
+<ng-template #gbooks>
+  <div *ngFor="let book of gbooksApiService.books">
+    <img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="">
+    <p>Titre: {{ book.volumeInfo.title }}</p>
+    <p>Auteur(s): {{ book.volumeInfo.authors || "unavailable" }}</p>
+    <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
+    <p>Prix: {{ book.saleInfo.retailPrice?.amount || "unavailable"}} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
+    <hr>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  loading ...
+</ng-template>
