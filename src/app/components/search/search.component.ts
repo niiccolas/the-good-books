@@ -8,9 +8,30 @@ import { GbooksApiService } from "../../services/gbooks-api.service";
 })
 export class SearchComponent implements OnInit {
 
+  userQuery        = null;
+  userQueryResults = null;
+
   constructor(private gbooksApiService: GbooksApiService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  query() {
+    this.gbooksApiService.queryApi(this.userQuery).subscribe((apiData) => {
+      console.log(apiData);
+      this.userQueryResults = apiData;
+    }, (error) => {
+      console.error(error);
+    });
   }
 
+  showMore() {
+    const currentLength = this.userQueryResults.items.length;
+
+    this.gbooksApiService.queryApi(this.userQuery, currentLength).subscribe((apiData) => {
+      console.log(apiData);
+      this.userQueryResults.items.push(...apiData.items);
+    }, (error) => {
+      console.error(error);
+    });
+  }
 }

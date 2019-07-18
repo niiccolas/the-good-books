@@ -1,16 +1,11 @@
-<p>search works!</p>
+<h2>Search</h2>
 
-<div *ngIf="gbooksApiService.books; then gbooks else loading"></div>
-<ng-template #gbooks>
-  <div *ngFor="let book of gbooksApiService.books">
-    <img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="">
-    <p>Titre: {{ book.volumeInfo.title }}</p>
-    <p>Auteur(s): {{ book.volumeInfo.authors || "unavailable" }}</p>
-    <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
-    <p>Prix: {{ book.saleInfo.retailPrice?.amount || "unavailable"}} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
-    <hr>
-  </div>
-</ng-template>
+<input [(ngModel)]='userQuery' (keydown.enter)="query()" />
+<button (click)="query()">Search</button>
+<div *ngIf="userQueryResults !== null">
+    <div *ngFor="let book of userQueryResults.items">{{ book.volumeInfo.title }}</div>
+    <p (click)="showMore()">See more...</p>
+</div>
 
 <ng-template #loading>
   loading ...
