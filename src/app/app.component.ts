@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GbooksApiService } from './services/gbooks-api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'the-good-books';
+
+  constructor(private gbooksApiService: GbooksApiService) { }
 }

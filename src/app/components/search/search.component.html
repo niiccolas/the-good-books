@@ -1,1 +1,12 @@
-<p>search works!</p>
+<h2>Search</h2>
+
+<input [(ngModel)]='userQuery' (keydown.enter)="query()" />
+<button (click)="query()">Search</button>
+<div *ngIf="userQueryResults !== null">
+    <div *ngFor="let book of userQueryResults.items">{{ book.volumeInfo.title }}</div>
+    <p (click)="showMore()">See more...</p>
+</div>
+
+<ng-template #loading>
+  loading ...
+</ng-template>

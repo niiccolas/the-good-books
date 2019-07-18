@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GbooksApiService } from "../../services/gbooks-api.service";
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  userQuery        = null;
+  userQueryResults = null;
 
-  ngOnInit() {
+  constructor(private gbooksApiService: GbooksApiService) { }
+
+  ngOnInit() { }
+
+  query() {
+    this.gbooksApiService.queryApi(this.userQuery).subscribe((apiData) => {
+      console.log(apiData);
+      this.userQueryResults = apiData;
+    }, (error) => {
+      console.error(error);
+    });
   }
 
+  showMore() {
+    const currentLength = this.userQueryResults.items.length;
+
+    this.gbooksApiService.queryApi(this.userQuery, currentLength).subscribe((apiData) => {
+      console.log(apiData);
+      this.userQueryResults.items.push(...apiData.items);
+    }, (error) => {
+      console.error(error);
+    });
+  }
 }
