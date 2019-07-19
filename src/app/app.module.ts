@@ -15,6 +15,7 @@ import { CartComponent } from './components/cart/cart.component';
 
 // SERVICES
 import { HttpClientModule } from '@angular/common/http';
+import { BooksItemComponent } from './components/books-item/books-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent,
     BooksComponent,
     DetailsComponent,
-    CartComponent
+    CartComponent,
+    BooksItemComponent
   ],
   imports: [
     BrowserModule,
