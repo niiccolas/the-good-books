@@ -1,1 +1,5 @@
-<p>books-item works!</p>
+<img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="">
+<p>Titre: {{ book.volumeInfo.title }}</p>
+<p>Auteur(s): {{ book.volumeInfo.authors || "unavailable" }}</p>
+<p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
+<p>Prix: {{ book.saleInfo.retailPrice?.amount || "unavailable"}} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
