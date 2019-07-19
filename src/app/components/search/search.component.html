@@ -3,8 +3,9 @@
 <input [(ngModel)]='userQuery' (keydown.enter)="query()" />
 <button (click)="query()">Search</button>
 <div *ngIf="userQueryResults !== null">
-    <div *ngFor="let book of userQueryResults.items">{{ book.volumeInfo.title }}</div>
-    <p (click)="showMore()">See more...</p>
+  <h2>BooksItem</h2>
+  <app-books-item *ngFor="let item of userQueryResults.items" [book]="item"></app-books-item>
+  <button (click)="showMore()">Show more books</button>
 </div>
 
 <ng-template #loading>
