@@ -1,10 +1,31 @@
 <h2>Search</h2>
+
+
+<h3>Save to LocalStorage</h3>
+<section><input type="text" [(ngModel)]="attribute"/></section>
+<section><button (click)="saveToLocalStorage()">Save</button></section>
+<hr>
+
+<h3>Retrieve from LocalStorage</h3>
+<section>{{attribute}}</section>
+<section><button (click)="retrieveFromLocalStorage()">Retrieve</button></section>
+<hr>
+
+
+<h3>Clear LocalStorage</h3>
+<section>{{boundAttribute}}</section>
+<section><button (click)="clearLocalStorage()">Clear</button></section>
+<hr>
+
+
+
+
 <input [(ngModel)]='userQuery' (keydown.enter)="query()" />
 <button (click)="query()">Search</button>
 
 <div *ngIf="userQueryResults !== null; else loading">
   <app-books-list [userQueryResults]="userQueryResults"></app-books-list>
-  <button (click)="showMore()">Show more books</button>
+  <button (click)="showMoreBooks()">Show more books</button>
 </div>
 
 <ng-template #loading>loading ...</ng-template>
