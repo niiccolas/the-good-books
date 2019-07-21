@@ -1,10 +1,14 @@
 <h2>Search</h2>
-<input [(ngModel)]='userQuery' (keydown.enter)="query()" />
-<button (click)="query()">Search</button>
 
-<div *ngIf="userQueryResults !== null; else loading">
+<!-- SearchForm component -->
+<div>
+  <h3>SearchForm</h3>
+  <input [(ngModel)]='userQuery' (keydown.enter)="query()" />
+  <button (click)="query()">Search</button>
+</div>
+
+<!-- BooksList component -->
+<div *ngIf="userQueryResults !== null">
   <app-books-list [userQueryResults]="userQueryResults"></app-books-list>
   <button (click)="showMore()">Show more books</button>
 </div>
-
-<ng-template #loading>loading ...</ng-template>
