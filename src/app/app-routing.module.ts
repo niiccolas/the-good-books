@@ -11,7 +11,7 @@ import { SearchComponent } from './components/search/search.component';
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' }, 
   { path: 'search', component: SearchComponent },
-  { path: 'details', component: DetailsComponent },
+  { path: 'search/:id', component: DetailsComponent},
   { path: 'cart', component: CartComponent}
 ];
 

@@ -13,4 +13,11 @@ export class GbooksApiService {
       `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResults}&startIndex=${startIndex}`
     ));
   }
+
+  selectBookItem(id: string): Observable<any> {
+    // return the selfLink
+    return (this.http.get(
+      'https://www.googleapis.com/books/v1/volumes/' + id));
+  }
+
 }
