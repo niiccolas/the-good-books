@@ -1,14 +1,42 @@
-<h2>Search</h2>
+<header class="container">
+  <h2>Search</h2>
+  <p class="flow-text center-align lead red-text text-lighten-2">Congrats, you're in The Good Books! 📚💯<br> Search and buy publications from the finest libraries around the world</p>
+</header>
 
-<!-- SearchForm component -->
-<div>
-  <h3>SearchForm</h3>
-  <input [(ngModel)]='userQuery' (keydown.enter)="query()" />
-  <button (click)="query()">Search</button>
-</div>
+<!-- SearchForm -->
+<section class="container">
+  <div class="row card-panel z-depth-4">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">book</i>
+        <input [(ngModel)]='titleQuery' (keydown.enter)="sendApiQuery()" id="icon_book" type="text" class="validate">
+        <label for="icon_book">Title</label>
+      </div>
 
-<!-- BooksList component -->
-<div *ngIf="userQueryResults !== null">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">person</i>
+        <input [(ngModel)]='authorQuery' (keydown.enter)="sendApiQuery()" id="icon_author" type="text" class="validate">
+        <label for="icon_author">Author</label>
+      </div>
+
+      <div class="input-field col s12">
+        <i class="material-icons prefix">fingerprint</i>
+        <input [(ngModel)]='isbnQuery' (keydown.enter)="sendApiQuery()" id="icon_isbn" type="text" class="validate" maxlength="13">
+        <label for="icon_isbn">ISBN</label>
+      </div>
+
+      <div class="col s12 right-align">
+        <button (click)="sendApiQuery()" class="waves-effect waves-light btn">Search Books</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ResultsList -->
+<section class="container" *ngIf="userQueryResults !== null">
   <app-books-list [userQueryResults]="userQueryResults"></app-books-list>
-  <button (click)="showMore()">Show more books</button>
-</div>
+  <!-- reveal the ShowMore button only when > 10 search results -->
+  <div class="col s12 right-align" *ngIf="userQueryResults.totalItems > 10">
+    <button (click)="showMoreResults()" class="waves-effect waves-light btn-large">Show More Results</button>
+  </div>
+</section>
