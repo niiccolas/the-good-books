@@ -7,7 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BooksListComponent implements OnInit {
 
+  // Inputs passed from parent component: Search
   @Input() userQueryResults: any;
+  @Input() titleQuery: any;
+  @Input() authorQuery: any;
+  @Input() isbnQuery: any;
 
   constructor() { }
 
