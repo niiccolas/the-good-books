@@ -1,3 +1,18 @@
 <h2>Details</h2>
 
+<img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="" (click)="displayLargeSize()">
 <div *ngIf="book">{{ book.volumeInfo.title }}</div>
+<p>Auteur(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
+<p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
+<p>Genre(s): {{ book.volumeInfo.categories || "unavailable" }}</p>
+<p>Publisher: {{ book.volumeInfo.publisher || "unavailable" }}</p>
+<p>Format eBook: {{ book.saleInfo.isEbook ? "yes" : "no" }}</p>
+<p>Price: {{ book.saleInfo.retailPrice?.amount || "unavailable" }} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
+<button>Add to Cart</button>
+
+<p>Description: {{ book.volumeInfo.description || unavailable }}</p>
+
+<p>Language: {{ book.volumeInfo.language }}</p>
+<p>Paperback: {{ book.volumeInfo.pageCount }} pages</p>
+<p>ISBN: {{ book.volumeInfo.industryIdentifiers[1].identifier || "unavailable" }}</p>
+

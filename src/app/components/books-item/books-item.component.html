@@ -1,6 +1,6 @@
 <h4>BooksItem</h4>
 
-<img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="">
+<a [routerLink]="['/search/', book.id]"><img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt=""></a>
 <p><a [routerLink]="['/search/', book.id]">Titre: {{ book.volumeInfo.title }}</a></p>
 <p>Auteur(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
 <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
