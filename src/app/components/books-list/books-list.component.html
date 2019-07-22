@@ -1,3 +1,17 @@
 <h3>BooksList</h3>
 
+<!-- Recap user query before displaying results -->
+<h4>{{userQueryResults.totalItems}} result<span *ngIf="userQueryResults.totalItems > 1">s</span> for
+  <span *ngIf="titleQuery">
+    <u>title</u> {{titleQuery}}
+  </span>
+  <span *ngIf="authorQuery">
+    <u>author</u> {{authorQuery}}
+  </span>
+  <span *ngIf="isbnQuery">
+    <u>isbn</u> n°{{isbnQuery}}
+  </span>
+</h4>
+
+<!-- User query results  -->
 <app-books-item *ngFor="let item of userQueryResults.items" [book]="item"></app-books-item>

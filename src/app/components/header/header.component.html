@@ -1,5 +1,14 @@
-<h2>Header</h2>
-
-<div><a routerLink="/search">The Good Books</a></div>
-<div><a routerLink="/search"><i class="fas fa-search"></i></a></div>
-<div><a routerLink="/cart"><i class="fas fa-shopping-cart"></i></a></div>
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/search" class="brand-logo left">The Good Books</a>
+    <ul id="nav-mobile" class="right">
+      <li class="waves-effect"><a routerLink="/search"><i class="material-icons">search</i></a></li>
+      <li class="waves-effect">
+        <a routerLink="/cart">
+          <i class="material-icons left">shopping_cart</i>
+          <span class="hide-on-small-and-down">0 items</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
