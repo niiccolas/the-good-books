@@ -8,15 +8,16 @@ import { GbooksApiService } from "../../services/gbooks-api.service";
 })
 export class SearchComponent implements OnInit {
 
-  userQuery        = null;
+  titleQuery       = '';
+  authorQuery      = '';
+  isbnQuery        = '';
   userQueryResults = null;
-
   constructor(private gbooksApiService: GbooksApiService) { }
 
   ngOnInit() { }
 
-  query() {
-    this.gbooksApiService.queryApi(this.userQuery).subscribe((apiData) => {
+  sendApiQuery() {
+    this.gbooksApiService.queryApi(this.titleQuery, this.authorQuery, this.isbnQuery).subscribe((apiData) => {
       console.log(apiData);
       this.userQueryResults = apiData;
     }, (error) => {
@@ -24,10 +25,10 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  showMore() {
+  showMoreResults() {
     const currentLength = this.userQueryResults.items.length;
 
-    this.gbooksApiService.queryApi(this.userQuery, currentLength).subscribe((apiData) => {
+    this.gbooksApiService.queryApi(this.titleQuery, this.authorQuery, this.isbnQuery, currentLength).subscribe((apiData) => {
       console.log(apiData);
       this.userQueryResults.items.push(...apiData.items);
     }, (error) => {

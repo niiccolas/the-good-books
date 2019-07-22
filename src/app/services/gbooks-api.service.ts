@@ -8,9 +8,17 @@ import { Observable } from 'rxjs';
 export class GbooksApiService {
   constructor(private http: HttpClient) { }
 
-  queryApi(query: string, startIndex: number = 0, maxResults: number = 10): Observable<any> {
+  queryApi(title: string, author: string, isbn: string,  startIndex: number = 0, maxResults: number = 10): Observable<any> {
+    // Initialize GbooksAPI specific keywords needed to build the query
+    const titleKey  = title  === '' ? '' : `intitle:${title}+`;
+    const authorKey = author === '' ? '' : `inauthor:${author}+`;
+    const isbnKey   = isbn   === '' ? '' : `isbn:${isbn}+`;
+
+    // Testing Query
+    console.log(`${titleKey}${authorKey}${isbnKey}&maxResults=${maxResults}&startIndex=${startIndex}`);
+
     return (this.http.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResults}&startIndex=${startIndex}`
+      `https://www.googleapis.com/books/v1/volumes?q=${titleKey}${authorKey}${isbnKey}&maxResults=${maxResults}&startIndex=${startIndex}`
     ));
   }
 

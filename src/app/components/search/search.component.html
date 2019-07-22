@@ -34,9 +34,14 @@
 
 <!-- ResultsList -->
 <section class="container" *ngIf="userQueryResults !== null">
-  <app-books-list [userQueryResults]="userQueryResults"></app-books-list>
+  <app-books-list [userQueryResults]="userQueryResults"
+  [titleQuery]="titleQuery"
+  [authorQuery]="authorQuery"
+  [isbnQuery]="isbnQuery"></app-books-list>
   <!-- reveal the ShowMore button only when > 10 search results -->
-  <div class="col s12 right-align" *ngIf="userQueryResults.totalItems > 10">
-    <button (click)="showMoreResults()" class="waves-effect waves-light btn-large">Show More Results</button>
+  <div class="row">
+    <div class="col s12 right-align" *ngIf="userQueryResults.totalItems > 10">
+      <button (click)="showMoreResults()" class="waves-effect waves-light btn-large">Show More Results</button>
+    </div>
   </div>
 </section>
