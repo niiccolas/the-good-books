@@ -7,7 +7,7 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p><a [routerLink]="['/search/', book.id]">{{ book.volumeInfo.title }}</a></p>
+          <p><a [routerLink]="['/detail/', book.id]">{{ book.volumeInfo.title }}</a></p>
           <p>Auteur(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
           <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
           <p>Prix: {{ book.saleInfo.retailPrice?.amount || "unavailable"}} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
