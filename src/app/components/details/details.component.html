@@ -5,7 +5,7 @@
   <div *ngIf="book">{{ book.volumeInfo.title }}</div>
   <p>Author(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
   <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
-  <p>Genre(s): {{ book.volumeInfo.categories.join(' - ') || "unavailable" }} </p>
+  <p>Genre(s): {{ book.volumeInfo.categories?.join(' - ') || "unavailable" }} </p>
   <p>Publisher: {{ book.volumeInfo.publisher || "unavailable" }}</p>
   <p>Ebook: {{ book.saleInfo.isEbook ? "yes" : "no" }}</p>
   <p>Price: {{ book.saleInfo.retailPrice?.amount || "unavailable" }} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
