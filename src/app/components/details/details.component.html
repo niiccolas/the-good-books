@@ -9,7 +9,7 @@
   <p>Publisher: {{ book.volumeInfo.publisher || "unavailable" }}</p>
   <p>Ebook: {{ book.saleInfo.isEbook ? "yes" : "no" }}</p>
   <p>Price: {{ book.saleInfo.retailPrice?.amount || "unavailable" }} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
-  <button class="btn">Add to Cart</button>
+  <button (click)="addToCart()" class="btn">Add to Cart</button>
 
   <p [innerHTML]="book.volumeInfo.description"></p>
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GbooksApiService } from 'src/app/services/gbooks-api.service';
+import { CartService } from 'src/app/services/cart.service';
+import { CartElement } from 'src/app/models/cart-element';
 
 @Component({
   selector: 'app-details',
@@ -12,8 +14,7 @@ export class DetailsComponent implements OnInit {
   public id:string = '';
   public book: any = null;
 
-
-  constructor(private route: ActivatedRoute, private gbooksApiService: GbooksApiService) { }
+  constructor(private route: ActivatedRoute, private gbooksApiService: GbooksApiService, private cartService: CartService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -22,11 +23,14 @@ export class DetailsComponent implements OnInit {
       // récupérer la requête
       this.gbooksApiService.selectBookItem(params.id).subscribe((data: any) => {
         this.book = data;
-      })
-      
-    })
+      });
+    });
   }
 
+  addToCart() {
+    this.cartService.cartElements.push(new CartElement(this.book));
+    console.log(this.cartService.cartElements);
+  }
 
 
 
