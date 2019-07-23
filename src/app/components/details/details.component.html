@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Details</h2>
 
-  <img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="">
+  <img [src]="book.volumeInfo.imageLinks?.small || 'http://placeskull.com/125/125/FF0000/10'" alt="">
   <div *ngIf="book">{{ book.volumeInfo.title }}</div>
   <p>Author(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
   <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
@@ -15,9 +15,7 @@
 
   <p>Language: {{ book.volumeInfo.language }}</p>
   <p>Paperback: {{ book.volumeInfo.pageCount }} pages</p>
-  <!-- afficher isbn 10 et/ou 13-->
 
   <p>ISBN 10: {{ book.volumeInfo.industryIdentifiers[0].identifier || "unavailable" }}</p>
   <p>ISBN 13: {{ book.volumeInfo.industryIdentifiers[1].identifier || "unavailable" }}</p>
-
 </div>
