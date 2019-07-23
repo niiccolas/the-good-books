@@ -1,4 +1,10 @@
 export class CartElement {
+  title: String;
+  author: String;
+  price: number;
+  currencyCode: String;
+  thumbnail: String;
+
   constructor(apiObject: any) {
     this.title        = apiObject.volumeInfo.title,
     this.author       = apiObject.volumeInfo.authors,
