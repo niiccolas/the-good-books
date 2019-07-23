@@ -3,11 +3,11 @@
 
   <img [src]="book.volumeInfo.imageLinks?.thumbnail || 'http://placeskull.com/125/125/FF0000/10'" alt="">
   <div *ngIf="book">{{ book.volumeInfo.title }}</div>
-  <p>Auteur(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
+  <p>Author(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
   <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
   <p>Genre(s): {{ book.volumeInfo.categories.join(' - ') || "unavailable" }} </p>
   <p>Publisher: {{ book.volumeInfo.publisher || "unavailable" }}</p>
-  <p>Format eBook: {{ book.saleInfo.isEbook ? "yes" : "no" }}</p>
+  <p>Ebook: {{ book.saleInfo.isEbook ? "yes" : "no" }}</p>
   <p>Price: {{ book.saleInfo.retailPrice?.amount || "unavailable" }} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
   <button class="btn">Add to Cart</button>
 
