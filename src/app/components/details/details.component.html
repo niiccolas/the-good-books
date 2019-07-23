@@ -5,13 +5,13 @@
   <div *ngIf="book">{{ book.volumeInfo.title }}</div>
   <p>Auteur(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
   <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
-  <p>Genre(s): {{ book.volumeInfo.categories || "unavailable" }}</p>
+  <p>Genre(s): {{ book.volumeInfo.categories.join(' - ') || "unavailable" }} </p>
   <p>Publisher: {{ book.volumeInfo.publisher || "unavailable" }}</p>
   <p>Format eBook: {{ book.saleInfo.isEbook ? "yes" : "no" }}</p>
   <p>Price: {{ book.saleInfo.retailPrice?.amount || "unavailable" }} {{ book.saleInfo.retailPrice?.currencyCode }}</p>
   <button class="btn">Add to Cart</button>
 
-  <p>Description: {{ book.volumeInfo.description || "unavailable" }}</p>
+  <p [innerHTML]="book.volumeInfo.description">Description: </p>
 
   <p>Language: {{ book.volumeInfo.language }}</p>
   <p>Paperback: {{ book.volumeInfo.pageCount }} pages</p>
