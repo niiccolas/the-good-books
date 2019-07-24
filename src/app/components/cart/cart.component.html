@@ -15,11 +15,13 @@
                 <div class="col s6">
                   <p>{{ book.details.title }}</p>
                   <p>Author: {{ book.details.authors || "unavailable" }}</p>
-                  <p>{{ book.units }} units</p>
                   <p>Prix: <del class="red-text">{{ book.details.price }} {{ book.details.currencyCode }}</del>
                 </div>
                 <div class="col s6">
-                  <p>blablablabl</p>
+                  <i class="material-icons" (click)="addBook(book.details.id)" >add</i>
+                  <span>{{ book.units }}</span>
+                  <i class="material-icons" (click)="substractBook(book.details.id)">remove</i>
+                  <i class="material-icons" (click)="discardBook(book.details.id)">highlight_off</i>
                 </div>
               </div>
                 <ng-container *ngIf="book.units < 10; else tenPercentDiscount">

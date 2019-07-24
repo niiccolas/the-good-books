@@ -15,4 +15,26 @@ export class CartComponent implements OnInit {
     console.log(this.cartList);
   }
 
+  addBook(id) {
+    this.cartList[this.whereInCart(id)].units++;
+    console.log(this.cartList);
+  }
+
+  substractBook(id) {
+    if (this.cartList[this.whereInCart(id)].units > 1) {
+      this.cartList[this.whereInCart(id)].units--;
+    }
+  }
+
+  discardBook(id) {
+    this.cartList.splice(this.whereInCart(id), 1);
+  }
+
+  whereInCart(bookId) {
+    for (let i = 0; i < this.cartList.length; i++) {
+      if (Object.values(this.cartList[i].details).includes(bookId)) {
+        return i;
+      }
+    }
+  }
 }
