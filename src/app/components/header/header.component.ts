@@ -13,6 +13,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  booksCount() {
+    if (this.cartService.cartElements.length > 0) {
+     return this.cartService.cartElements.map(el => el.units).reduce((acc, el) => acc + el);  
+    } 
+    return 0;
+  }
 
       
 }
