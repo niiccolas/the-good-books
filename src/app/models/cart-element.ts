@@ -14,7 +14,7 @@ export class CartElement {
       title: apiObject.volumeInfo.title,
       author: apiObject.volumeInfo.authors,
       price: this.validatePrice(apiObject.saleInfo),
-      currencyCode: 'EUR',
+      currencyCode: '€',
       thumbnail: apiObject.volumeInfo.imageLinks.thumbnail,
       id: apiObject.id
     };
