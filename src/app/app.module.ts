@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartTotalComponent } from './components/cart-total/cart-total.component';
 import { BooksComponent } from './components/books/books.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BooksItemComponent } from './components/books-item/books-item.component';
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     CartComponent,
     BooksComponent,
     BooksListComponent,
-    BooksItemComponent
+    BooksItemComponent,
+    CartTotalComponent
   ],
   imports: [
     BrowserModule,
