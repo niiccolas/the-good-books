@@ -16,6 +16,8 @@
   <p>Language: {{ book.volumeInfo.language }}</p>
   <p>Paperback: {{ book.volumeInfo.pageCount }} pages</p>
 
-  <p>ISBN 10: {{ book.volumeInfo.industryIdentifiers[0].identifier || "unavailable" }}</p>
-  <p>ISBN 13: {{ book.volumeInfo.industryIdentifiers[1].identifier || "unavailable" }}</p>
+  <div *ngIf="book.volumeInfo.industryIdentifiers">
+    <p>ISBN 10: {{ book.volumeInfo.industryIdentifiers[0].identifier || "unavailable" }}</p>
+    <p>ISBN 13: {{ book.volumeInfo.industryIdentifiers[1].identifier || "unavailable" }}</p>
+  </div>
 </div>
