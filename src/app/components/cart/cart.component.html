@@ -5,14 +5,24 @@
       <div class="col s12">
         <div class="card horizontal hoverable">
           <div class="card-image">
-              <a [routerLink]="['/search/', book.details.id]">
+              <a [routerLink]="['/detail/', book.details.id]">
             <img [src]="book.details.thumbnail || 'http://placeskull.com/128/200/FF0000/10'" alt=""></a>
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <p>{{ book.details.title }}</p>
               <p>Author: {{ book.details.authors || "unavailable" }}</p>
-              <p>Prix: {{ book.details.price }} {{ book.details.currencyCode }}</p>
+              <p>{{ book.units }} units</p>
+              <p>Prix: <del class="red-text">{{ book.details.price }} {{ book.details.currencyCode }}</del>
+                <ng-container *ngIf="book.units < 10; else tenPercentDiscount">
+                  {{ (book.details.price - (book.details.price * 0.05)).toFixed(2) }} {{ book.details.currencyCode }}
+                  <span class="badge teal white-text">-5%</span>
+                </ng-container>
+                <ng-template #tenPercentDiscount>
+                    {{ (book.details.price - (book.details.price * 0.10)).toFixed(2) }} {{ book.details.currencyCode }}
+                    <p>10 percent</p>
+                </ng-template>
+              </p>
             </div>
           </div>
         </div>
