@@ -17,6 +17,7 @@ import { BooksItemComponent } from './components/books-item/books-item.component
 
 // SERVICES
 import { HttpClientModule } from '@angular/common/http';
+import { HttpErrorComponent } from './components/http-error/http-error.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     CartComponent,
     BooksComponent,
     BooksListComponent,
-    BooksItemComponent
+    BooksItemComponent,
+    HttpErrorComponent
   ],
   imports: [
     BrowserModule,
