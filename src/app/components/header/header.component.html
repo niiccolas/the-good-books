@@ -6,7 +6,7 @@
       <li class="waves-effect">
         <a routerLink="/cart">
           <i class="material-icons left">shopping_cart</i>
-          <span class="hide-on-small-and-down">0 items</span>
+          <span class="hide-on-small-and-down">{{ cartService.cartElements.length }}</span>
         </a>
       </li>
     </ul>
