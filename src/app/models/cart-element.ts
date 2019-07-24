@@ -1,16 +1,25 @@
 export class CartElement {
-  title: String;
-  author: String;
+  details: object;
+  title: string;
+  author: string;
   price: number;
-  currencyCode: String;
-  thumbnail: String;
+  currencyCode: string;
+  thumbnail: string;
+  id: string;
+  units: number;
 
   constructor(apiObject: any) {
-    this.title        = apiObject.volumeInfo.title,
-    this.author       = apiObject.volumeInfo.authors,
-    this.price        = this.validatePrice(apiObject.saleInfo),
-    this.currencyCode = 'EUR',
-    this.thumbnail    = apiObject.volumeInfo.imageLinks.thumbnail;
+
+    this.details = {
+      title: apiObject.volumeInfo.title,
+      author: apiObject.volumeInfo.authors,
+      price: this.validatePrice(apiObject.saleInfo),
+      currencyCode: 'EUR',
+      thumbnail: apiObject.volumeInfo.imageLinks.thumbnail,
+      id: apiObject.id
+    };
+
+    this.units = 1;
   }
 
   validatePrice(saleInfo) {
