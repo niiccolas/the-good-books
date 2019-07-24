@@ -17,7 +17,7 @@ export class CartTotalComponent implements OnInit {
     let total = 0;
 
     this.cartService.cartElements.forEach(book => {
-      total += this.applyDiscount(book.price, 5);
+      total += this.applyDiscount(book.details.price, 5);
     });
 
     return total;
