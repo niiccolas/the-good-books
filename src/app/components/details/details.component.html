@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" *ngIf="book">
   <h2>Details</h2>
 
   <img [src]="book.volumeInfo.imageLinks?.small || 'http://placeskull.com/125/125/FF0000/10'" alt="">
-  <div *ngIf="book">{{ book.volumeInfo.title }}</div>
+  <div>{{ book.volumeInfo.title }}</div>
   <p>Author(s): {{ book.volumeInfo.authors?.join(', ') || "unavailable" }}</p>
   <p>Average Rating: {{ book.volumeInfo.averageRating || "unavailable" }}</p>
   <p>Genre(s): {{ book.volumeInfo.categories?.join(' - ') || "unavailable" }} </p>
