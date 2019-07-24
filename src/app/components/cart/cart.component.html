@@ -10,10 +10,18 @@
           </div>
           <div class="card-stacked">
             <div class="card-content">
-              <p>{{ book.details.title }}</p>
-              <p>Author: {{ book.details.authors || "unavailable" }}</p>
-              <p>{{ book.units }} units</p>
-              <p>Prix: <del class="red-text">{{ book.details.price }} {{ book.details.currencyCode }}</del>
+
+              <div class="row">
+                <div class="col s6">
+                  <p>{{ book.details.title }}</p>
+                  <p>Author: {{ book.details.authors || "unavailable" }}</p>
+                  <p>{{ book.units }} units</p>
+                  <p>Prix: <del class="red-text">{{ book.details.price }} {{ book.details.currencyCode }}</del>
+                </div>
+                <div class="col s6">
+                  <p>blablablabl</p>
+                </div>
+              </div>
                 <ng-container *ngIf="book.units < 10; else tenPercentDiscount">
                   {{ (book.details.price - (book.details.price * 0.05)).toFixed(2) }} {{ book.details.currencyCode }}
                   <span class="badge teal white-text">-5%</span>
@@ -22,7 +30,6 @@
                     {{ (book.details.price - (book.details.price * 0.10)).toFixed(2) }} {{ book.details.currencyCode }}
                     <p>10 percent</p>
                 </ng-template>
-              </p>
             </div>
           </div>
         </div>

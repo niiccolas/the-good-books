@@ -52,7 +52,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addToCart() {
-    const cartArray = this.cartService.cartElements;
+    const cartArray: Array<any> = this.cartService.cartElements;
 
     if (this.isInCart(this.book.id)) {
       for (const bookObject of cartArray) {
@@ -66,6 +66,8 @@ export class DetailsComponent implements OnInit {
   }
 
   isInCart(bookId) {
-    return this.cartService.cartElements.some(cart => cart.details.id === bookId);
+    const cartArray: Array<any> = this.cartService.cartElements;
+
+    return cartArray.some(cart => cart.details.id === bookId);
   }
 }

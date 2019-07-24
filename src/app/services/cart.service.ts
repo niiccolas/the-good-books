@@ -8,6 +8,9 @@ export class CartService {
 
   cartElements: Array<CartElement> = [];
 
-
   constructor() { }
+
+  cartEmpty() {
+    return this.cartElements.length === 0;
+  }
 }
